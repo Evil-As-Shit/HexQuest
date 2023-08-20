@@ -1,0 +1,154 @@
+{
+	"dialogue": [
+		{
+			"id": "ITM000",
+			"text": "Do they really expect me to read all these books?",
+			"expression": "witch_stare",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM001",
+			"text": "Yea I aint reading all of these...",
+			"expression": "witch_upset",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM010",
+			"text": "Would you like to charge your phone?",
+			"expression": "null",
+			"choices": ["Yes","No",],
+		},
+		{
+			"id": "ITM011",
+			"text": "Charging phone...",
+			"expression": "null",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM012",
+			"text": "Phone is Charged!!!",
+			"expression": "null",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM013",
+			"text": "Oh... Ok!",
+			"expression": "null",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM020",
+			"text": "I shouldn't leave until I get my first soul..",
+			"expression": "witch_stare",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM021",
+			"text": "I'm ready to explore the world with my new Soul now!",
+			"expression": "witch_happy",
+			"isEnd":"true",
+		},
+		{
+			"id": "ITM022",
+			"text": "If only SOMEONE would code it...",
+			"expression": "witch_upset",
+			"isEnd":"true",
+		},
+		{
+			"id": "NPC000",
+			"text": "hello",
+			"expression": "npc1_happy",
+			"divert": "NPC001"
+		},
+		{
+			"id": "NPC001",
+			"text": "Hi!!",
+			"expression": "witch_happy",
+			"isEnd":"true",
+		},
+		{
+			"id": "NPC002",
+			"text": "Hey... My phone is dead... Is there somewhere I can charge it?",
+			"expression": "witch_upset",
+			"divert": "NPC003"
+		},
+		{
+			"id": "NPC003",
+			"text": "Yea! There is an outlet over by the door! Feel free to use it.",
+			"expression": "npc1_happy",
+			"isEnd":"true",
+		},
+		{
+			"id": "NPC004",
+			"text": "What's up with that soul over there?",
+			"expression": "witch_stare",
+			"divert": "NPC005"
+		},
+		{
+			"id": "NPC005",
+			"text": "Oh you don't know about the souls?!",
+			"expression": "npc1_happy",
+			"divert": "NPC006"
+		},
+		{
+			"id": "NPC007",
+			"text": "Well obviously, I just asked about it...",
+			"expression": "witch_smug",
+			"divert": "NPC008"
+		},
+		{
+			"id": "NPC008",
+			"text": "Right... Well all you have to do is open your phone (Q) when you are close to it and use (E) your SoulApp!",
+			"expression": "npc1_happy",
+			"divert": "NPC009"
+		},
+		{
+			"id": "NPC009",
+			"text": "Oh yea... I knew that...",
+			"expression": "witch_smug",
+			"isEnd":"true",
+		},
+		{
+			"id": "NPC010",
+			"text": "Wow! Good job! You collected your first soul!!",
+			"expression": "npc1_happy",
+			"divert": "NPC011"
+		},
+		{
+			"id": "NPC011",
+			"text": "Oh thanks, no biggie...",
+			"expression": "witch_smug",
+			"isEnd":"true",
+		},
+		{
+			"id": "QRC000",
+			"text": "Looks like there is some texture missing here...",
+			"expression": "witch_surprised",
+			"divert":"QRC001",
+		},
+		{
+			"id": "QRC001",
+			"text": "I have an app that looks kinda similar!",
+			"expression": "witch_happy",
+			"isEnd":"true",
+		},
+		{
+			"id": "SOL000",
+			"text": "How do I collect this thing?",
+			"expression": "witch_stare",
+			"isEnd":"true",
+		},
+		{
+			"id": "SOL001",
+			"text": "Maybe someone around here knows what to do...",
+			"expression": "witch_smug",
+			"isEnd":"true",
+		},
+		{
+			"id": "SOL010",
+			"text": "What is wrong with this soul?",
+			"expression": "witch_surprised",
+			"isEnd":"true",
+		},
+	]
+}
