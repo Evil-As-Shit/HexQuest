@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y85hn2ng4g6g"
-path="res://.godot/imported/witch_blankstare.png-762d39afd0a9f5e704e56196eca3518c.ctex"
+path="res://.godot/imported/witch_stare.png-31bb676fbcfd3db7320ff6240d7a9fc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/witch_blankstare.png"
-dest_files=["res://.godot/imported/witch_blankstare.png-762d39afd0a9f5e704e56196eca3518c.ctex"]
+source_file="res://Assets/ui/Avatars/witch_stare.png"
+dest_files=["res://.godot/imported/witch_stare.png-31bb676fbcfd3db7320ff6240d7a9fc7.ctex"]
 
 [params]
 

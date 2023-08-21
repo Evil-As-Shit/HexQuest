@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlmn1xhvhxc6"
-path="res://.godot/imported/npc2avatar.png-90aadef18e034c85f64e261b7a80e687.ctex"
+uid="uid://2x75dsxhw77x"
+path="res://.godot/imported/witch_upset.png-8d975ade3ed2586e2aaa893aba51e94d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/npc2avatar.png"
-dest_files=["res://.godot/imported/npc2avatar.png-90aadef18e034c85f64e261b7a80e687.ctex"]
+source_file="res://Assets/ui/Avatars/witch_upset.png"
+dest_files=["res://.godot/imported/witch_upset.png-8d975ade3ed2586e2aaa893aba51e94d.ctex"]
 
 [params]
 
