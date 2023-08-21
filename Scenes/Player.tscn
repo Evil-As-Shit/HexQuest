@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddpjv6gvn3leh"]
+[gd_scene load_steps=39 format=3 uid="uid://ddpjv6gvn3leh"]
 
 [ext_resource type="Script" path="res://Scripts/Hexy.gd" id="1_rx7mu"]
-[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Art/Hexy.png" id="2_3wdvi"]
+[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Assets/ui/Hexy.png" id="2_4oa4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8my8"]
 size = Vector2(10, 2)
@@ -82,6 +82,66 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_b7dma"]
+resource_name = "phone_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_ub80t"]
+resource_name = "phone_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_ic6kh"]
+resource_name = "phone_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_vuq6j"]
+resource_name = "phone_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
 [sub_resource type="Animation" id="Animation_s1x2w"]
 resource_name = "walking_down"
 length = 0.4
@@ -158,6 +218,10 @@ _data = {
 "idle_left": SubResource("Animation_5kl7h"),
 "idle_right": SubResource("Animation_o165r"),
 "idle_up": SubResource("Animation_hlo3b"),
+"phone_down": SubResource("Animation_b7dma"),
+"phone_left": SubResource("Animation_ub80t"),
+"phone_right": SubResource("Animation_ic6kh"),
+"phone_up": SubResource("Animation_vuq6j"),
 "walking_down": SubResource("Animation_s1x2w"),
 "walking_left": SubResource("Animation_d5edw"),
 "walking_right": SubResource("Animation_f0xl8"),
@@ -188,6 +252,30 @@ blend_point_3/pos = Vector2(-1, 0)
 min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jfesr"]
+animation = &"phone_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyj07"]
+animation = &"phone_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cig1y"]
+animation = &"phone_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uj158"]
+animation = &"phone_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_muesh"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jfesr")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yyj07")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_cig1y")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_uj158")
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ryro1"]
 animation = &"walking_down"
@@ -220,14 +308,20 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5hj3f"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jskjp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qv52v"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4eofk"]
 states/End/position = Vector2(778, 100)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_3jh8d")
 states/Idle/position = Vector2(349, 100)
+states/Phone/node = SubResource("AnimationNodeBlendSpace2D_muesh")
+states/Phone/position = Vector2(349, 200)
 states/Start/position = Vector2(136, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_dos8p")
 states/Walk/position = Vector2(582, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rivye"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_muk2t"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_5hj3f")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rivye"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_muk2t"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_5hj3f"), "Idle", "Phone", SubResource("AnimationNodeStateMachineTransition_jskjp"), "Phone", "Idle", SubResource("AnimationNodeStateMachineTransition_qv52v")]
 graph_offset = Vector2(-353, -40)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -235,10 +329,10 @@ motion_mode = 1
 script = ExtResource("1_rx7mu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3wdvi")
+texture = ExtResource("2_4oa4o")
 offset = Vector2(0, -12)
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -255,7 +349,14 @@ tree_root = SubResource("AnimationNodeStateMachine_4eofk")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle/blend_position = Vector2(-0.177419, 0.471204)
+parameters/Phone/blend_position = Vector2(-0.00339723, 1.1)
 parameters/Walk/blend_position = Vector2(-0.0406452, 0.155497)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1

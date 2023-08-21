@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://5v4h5ybacygp"]
+
+[ext_resource type="Texture2D" uid="uid://ciw0p8m15ftdo" path="res://Assets/ui/Phone.png" id="1_fj18a"]
+[ext_resource type="Texture2D" uid="uid://d3xggx4l1oknd" path="res://Assets/ui/Button_Normal.png" id="2_copwg"]
+[ext_resource type="PackedScene" uid="uid://c4k56nxthkfw6" path="res://Scenes/DialogueBox.tscn" id="3_5ed34"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyitv"]
+texture = ExtResource("2_copwg")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(70, 0, 70, 70)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwhl8"]
+texture = ExtResource("2_copwg")
+region_rect = Rect2(5, 5, 60, 60)
+
+[sub_resource type="Theme" id="Theme_l8n3q"]
+Button/constants/h_separation = 0
+Button/styles/focus = SubResource("StyleBoxTexture_iyitv")
+Button/styles/hover = SubResource("StyleBoxTexture_iyitv")
+Button/styles/normal = SubResource("StyleBoxTexture_lwhl8")
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="PhoneControl" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+
+[node name="PhoneSprite" type="Sprite2D" parent="PhoneControl"]
+position = Vector2(15, 180)
+texture = ExtResource("1_fj18a")
+centered = false
+
+[node name="Options" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 65.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App1" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 15.0
+offset_top = 155.0
+offset_right = 75.0
+offset_bottom = 215.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App2" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 90.0
+offset_top = 155.0
+offset_right = 150.0
+offset_bottom = 215.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App3" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 165.0
+offset_top = 155.0
+offset_right = 225.0
+offset_bottom = 215.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App4" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 240.0
+offset_top = 155.0
+offset_right = 300.0
+offset_bottom = 215.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App5" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 15.0
+offset_top = 235.0
+offset_right = 75.0
+offset_bottom = 295.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App6" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 90.0
+offset_top = 235.0
+offset_right = 150.0
+offset_bottom = 295.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App7" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 165.0
+offset_top = 235.0
+offset_right = 225.0
+offset_bottom = 295.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="App8" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 240.0
+offset_top = 235.0
+offset_right = 300.0
+offset_bottom = 295.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="QRApp" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 15.0
+offset_top = 400.0
+offset_right = 75.0
+offset_bottom = 460.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="TexApp" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 90.0
+offset_top = 400.0
+offset_right = 150.0
+offset_bottom = 460.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="PixApp" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 165.0
+offset_top = 400.0
+offset_right = 225.0
+offset_bottom = 460.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="SoulApp" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 240.0
+offset_top = 400.0
+offset_right = 300.0
+offset_bottom = 460.0
+theme = SubResource("Theme_l8n3q")
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_5ed34")]
+offset_left = 340.0
+offset_top = 505.0
+offset_right = 820.0
+offset_bottom = 633.0

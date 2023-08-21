@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATE {IDLE, WALK}
+enum STATE {IDLE, WALK, PHONE}
 
 @export var move_speed: float = 50.0
 @export var move_acc: float = 500.0
@@ -18,6 +18,8 @@ func set_current_state(new_state):
 			state_machine.travel("Idle")
 		STATE.WALK:
 			state_machine.travel("Walk")
+		STATE.PHONE:
+			state_machine.travel("Phone")
 	current_state = new_state
 
 func _physics_process(delta: float) -> void:
@@ -40,3 +42,4 @@ func get_directional_input():
 func update_animation_parameters(move_input : Vector2):
 	animation_tree.set("parameters/Idle/blend_position",move_input)
 	animation_tree.set("parameters/Walk/blend_position",move_input)
+	animation_tree.set("parameters/Phone/blend_position",move_input)
