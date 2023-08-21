@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxut0xhvvlqlf"
-path="res://.godot/imported/witch_openhappy.png-c26a4b99c58251f890e385c3a52eb198.ctex"
+uid="uid://bqlmn1xhvhxc6"
+path="res://.godot/imported/npc2avatar.png-90aadef18e034c85f64e261b7a80e687.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/witch/witch_openhappy.png"
-dest_files=["res://.godot/imported/witch_openhappy.png-c26a4b99c58251f890e385c3a52eb198.ctex"]
+source_file="res://Assets/ui/Avatars/npc2avatar.png"
+dest_files=["res://.godot/imported/npc2avatar.png-90aadef18e034c85f64e261b7a80e687.ctex"]
 
 [params]
 

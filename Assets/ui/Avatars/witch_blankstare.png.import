@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlmn1xhvhxc6"
-path="res://.godot/imported/npc2avatar.png-1a758ccc83f8b867202ced646619c749.ctex"
+uid="uid://y85hn2ng4g6g"
+path="res://.godot/imported/witch_blankstare.png-762d39afd0a9f5e704e56196eca3518c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/npc2/npc2avatar.png"
-dest_files=["res://.godot/imported/npc2avatar.png-1a758ccc83f8b867202ced646619c749.ctex"]
+source_file="res://Assets/ui/Avatars/witch_blankstare.png"
+dest_files=["res://.godot/imported/witch_blankstare.png-762d39afd0a9f5e704e56196eca3518c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n4rc2trgwfr6"
-path="res://.godot/imported/witch_angry.png-154988924e976e91c9eabf89c591d94d.ctex"
+uid="uid://cx48uuw7kpwty"
+path="res://.godot/imported/witch_happy.png-69163be66066fd082694a223b48d1260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/witch/witch_angry.png"
-dest_files=["res://.godot/imported/witch_angry.png-154988924e976e91c9eabf89c591d94d.ctex"]
+source_file="res://Assets/ui/Avatars/witch_happy.png"
+dest_files=["res://.godot/imported/witch_happy.png-69163be66066fd082694a223b48d1260.ctex"]
 
 [params]
 

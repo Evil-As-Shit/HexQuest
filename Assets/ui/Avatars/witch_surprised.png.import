@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2x75dsxhw77x"
-path="res://.godot/imported/witch_sad.png-e1ff8194220a3479a0517a6c7dfcbef5.ctex"
+uid="uid://c6avxpxdf0vsc"
+path="res://.godot/imported/witch_surprised.png-aa863b4a6eba7cf40cd894e43048e381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Avatars/witch/witch_sad.png"
-dest_files=["res://.godot/imported/witch_sad.png-e1ff8194220a3479a0517a6c7dfcbef5.ctex"]
+source_file="res://Assets/ui/Avatars/witch_surprised.png"
+dest_files=["res://.godot/imported/witch_surprised.png-aa863b4a6eba7cf40cd894e43048e381.ctex"]
 
 [params]
 
