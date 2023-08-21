@@ -23,7 +23,7 @@ func set_current_state(new_state):
 	current_state = new_state
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.pressed and not event.is_echo():
 		if event.keycode == KEY_Q:
 			SignalController.emit_signal("phone_switch")
 			if on_phone == false:
