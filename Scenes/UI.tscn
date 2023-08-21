@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://5v4h5ybacygp"]
+[gd_scene load_steps=8 format=3 uid="uid://5v4h5ybacygp"]
 
 [ext_resource type="Texture2D" uid="uid://ciw0p8m15ftdo" path="res://Assets/ui/Phone.png" id="1_fj18a"]
 [ext_resource type="Texture2D" uid="uid://d3xggx4l1oknd" path="res://Assets/ui/Button_Normal.png" id="2_copwg"]
+[ext_resource type="Script" path="res://Scenes/Phone.gd" id="2_kfx4p"]
 [ext_resource type="PackedScene" uid="uid://c4k56nxthkfw6" path="res://Scenes/DialogueBox.tscn" id="3_5ed34"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyitv"]
@@ -37,6 +38,7 @@ anchors_preset = 0
 position = Vector2(15, 180)
 texture = ExtResource("1_fj18a")
 centered = false
+script = ExtResource("2_kfx4p")
 
 [node name="Options" type="Button" parent="PhoneControl/PhoneSprite"]
 offset_left = 15.0
