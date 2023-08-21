@@ -8,7 +8,9 @@ func _ready():
 func on_phone():
 	if inUI == false:
 		inUI = true
+		get_node("Home").grab_focus()
 	else:
+		get_viewport().gui_get_focus_owner().release_focus()
 		inUI = false
 
 func _process(delta):

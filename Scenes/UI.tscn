@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5v4h5ybacygp"]
+[gd_scene load_steps=10 format=3 uid="uid://5v4h5ybacygp"]
 
 [ext_resource type="Texture2D" uid="uid://ciw0p8m15ftdo" path="res://Assets/ui/Phone.png" id="1_fj18a"]
 [ext_resource type="Texture2D" uid="uid://d3xggx4l1oknd" path="res://Assets/ui/Button_Normal.png" id="2_copwg"]
@@ -27,6 +27,20 @@ Button/styles/focus = SubResource("StyleBoxTexture_iyitv")
 Button/styles/hover = SubResource("StyleBoxTexture_iyitv")
 Button/styles/normal = SubResource("StyleBoxTexture_lwhl8")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp8oi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kokwy"]
+texture = ExtResource("2_copwg")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(140, 0, 40, 15)
+
 [node name="UI" type="CanvasLayer"]
 
 [node name="PhoneControl" type="Control" parent="."]
@@ -35,7 +49,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="PhoneSprite" type="Sprite2D" parent="PhoneControl"]
-position = Vector2(15, 180)
+position = Vector2(15, 645)
 texture = ExtResource("1_fj18a")
 centered = false
 script = ExtResource("2_kfx4p")
@@ -130,6 +144,16 @@ offset_top = 400.0
 offset_right = 300.0
 offset_bottom = 460.0
 theme = SubResource("Theme_l8n3q")
+
+[node name="Home" type="Button" parent="PhoneControl/PhoneSprite"]
+offset_left = 145.0
+offset_top = 495.0
+offset_right = 175.0
+offset_bottom = 500.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_sp8oi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kokwy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kokwy")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kokwy")
 
 [node name="DialogueBox" parent="." instance=ExtResource("3_5ed34")]
 offset_left = 340.0
