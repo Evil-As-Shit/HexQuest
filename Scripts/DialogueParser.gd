@@ -8,10 +8,12 @@ static func loadDB(jsonFile, table):
 	
 	var json: JSON = JSON.new();
 	var error = json.parse(content)
-	var toReturn = null;
+	var toReturn = {};
 	if error == OK:
 		var data = json.data
-		toReturn = data[table]
+		for s in data[table]:
+			toReturn[s["id"]] = s
+			
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", content, " at line ", json.get_error_line())
 	

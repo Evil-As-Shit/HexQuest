@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4k56nxthkfw6"]
+
+[ext_resource type="Script" path="res://Scripts/UI/DialogueBox.gd" id="1_5cu1i"]
+[ext_resource type="Texture2D" uid="uid://cbele1u6vrwbe" path="res://Assets/ui/blankballoon.png" id="2_jdnts"]
+[ext_resource type="Texture2D" uid="uid://2x75dsxhw77x" path="res://Assets/ui/Avatars/witch_upset.png" id="3_8fhyv"]
+[ext_resource type="Texture2D" uid="uid://bl3f4ci5iq1y5" path="res://Assets/ui/nextindicator.png" id="4_27kx6"]
+
+[node name="DialogueBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 350.0
+offset_top = 500.0
+offset_right = 830.0
+offset_bottom = 628.0
+script = ExtResource("1_5cu1i")
+
+[node name="BGNinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 128.0
+texture = ExtResource("2_jdnts")
+region_rect = Rect2(0, 0, 160, 61)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="PortraitTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -35.0
+offset_right = 42.0
+offset_bottom = 38.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8fhyv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 10.0
+offset_right = 470.0
+offset_bottom = 120.0
+text = "Yea I aint reading all of these... more words to make sure autowrap works properly."
+autowrap_mode = 2
+
+[node name="NextIndicator" type="Sprite2D" parent="."]
+position = Vector2(464, 113)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_27kx6")
+hframes = 2
