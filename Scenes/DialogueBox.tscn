@@ -8,7 +8,8 @@
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 480.0
+offset_left = 19.0
+offset_right = 499.0
 offset_bottom = 128.0
 script = ExtResource("1_5cu1i")
 
@@ -42,7 +43,7 @@ autowrap_mode = 2
 visible_characters_behavior = 1
 
 [node name="NextIndicator" type="Sprite2D" parent="."]
-position = Vector2(445, 95)
+position = Vector2(460, 110)
 texture = ExtResource("4_27kx6")
 centered = false
 hframes = 2

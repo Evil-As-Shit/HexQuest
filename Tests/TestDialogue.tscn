@@ -18,6 +18,10 @@ texture = ExtResource("2_6rexq")
 script = ExtResource("2_psias")
 
 [node name="DialogueBox" parent="." instance=ExtResource("4_8hc22")]
+offset_left = 79.0
+offset_top = 92.0
+offset_right = 559.0
+offset_bottom = 220.0
 
 [node name="ButtonsContainer" type="GridContainer" parent="."]
 anchors_preset = 15

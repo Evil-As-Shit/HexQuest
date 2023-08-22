@@ -25,6 +25,5 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_tk86h")
 
 [node name="CharacterBody2D" parent="YSort" instance=ExtResource("1_1kajg")]
-position = Vector2(-3, 3)
 
 [node name="UI" parent="." instance=ExtResource("3_4dopf")]
