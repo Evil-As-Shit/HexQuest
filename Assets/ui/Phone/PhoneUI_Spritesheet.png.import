@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3xggx4l1oknd"
-path="res://.godot/imported/Button_Normal.png-bc0ee71db397c85ff2d2e43a8e9de58f.ctex"
+path="res://.godot/imported/PhoneUI_Spritesheet.png-cecce86a542f156c02ff63071a153ba1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Button_Normal.png"
-dest_files=["res://.godot/imported/Button_Normal.png-bc0ee71db397c85ff2d2e43a8e9de58f.ctex"]
+source_file="res://Assets/ui/Phone/PhoneUI_Spritesheet.png"
+dest_files=["res://.godot/imported/PhoneUI_Spritesheet.png-cecce86a542f156c02ff63071a153ba1.ctex"]
 
 [params]
 
