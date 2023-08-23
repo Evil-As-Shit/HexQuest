@@ -20,6 +20,6 @@ func _process(delta):
 		self.position = self.position.lerp(Vector2(15,645), delta*10) 
 
 func _input(event):
-	if event is InputEventKey and event.pressed and not event.is_echo():
+	if event is InputEventKey and event.pressed and not event.is_echo() and inUI:
 		if event.keycode == KEY_E:
 			print(get_viewport().gui_get_focus_owner().name)

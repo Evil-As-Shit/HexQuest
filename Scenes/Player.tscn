@@ -325,7 +325,7 @@ states/Walk/position = Vector2(582, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rivye"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_muk2t"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_5hj3f"), "Idle", "Phone", SubResource("AnimationNodeStateMachineTransition_jskjp"), "Phone", "Idle", SubResource("AnimationNodeStateMachineTransition_qv52v")]
 graph_offset = Vector2(-324, 23)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Hexy" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_rx7mu")
 
