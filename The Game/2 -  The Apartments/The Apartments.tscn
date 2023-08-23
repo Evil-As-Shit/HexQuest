@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjf0wgc4dwc6s"]
+[gd_scene load_steps=6 format=3 uid="uid://bjf0wgc4dwc6s"]
 
 [ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="1_kn8ed"]
 [ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="2_uv7gc"]
 [ext_resource type="Texture2D" uid="uid://b47ff7nu6p81c" path="res://Assets/TheApartments_Spritesheet.png" id="3_w5862"]
 [ext_resource type="Script" path="res://The Game/2 -  The Apartments/BalconyDoor_Sprite.gd" id="4_jqwy4"]
+[ext_resource type="Material" uid="uid://c4gjp8yt5xy0m" path="res://The Game/2 -  The Apartments/PixelateShader.tres" id="4_qycbj"]
 
 [node name="The Apartments" type="Node2D"]
 
@@ -36,6 +37,7 @@ visible = false
 polygon = PackedVector2Array(56, 6, 18, 8, 16, 11, 6, 11, -15, 54, 34, 58, 40, 45, 40, 31, 47, 31, 56, 12)
 
 [node name="BalconyDoor_Sprite" type="Sprite2D" parent="YSort"]
+material = ExtResource("4_qycbj")
 position = Vector2(-62, -54)
 texture = ExtResource("3_w5862")
 offset = Vector2(-11, 5)
@@ -44,6 +46,7 @@ region_rect = Rect2(240, 0, 24, 80)
 script = ExtResource("4_jqwy4")
 
 [node name="BalconyDoor_Sprite2" type="Sprite2D" parent="YSort"]
+material = ExtResource("4_qycbj")
 position = Vector2(-77, -25)
 texture = ExtResource("3_w5862")
 offset = Vector2(-4, -24)
@@ -54,6 +57,7 @@ region_rect = Rect2(240, 0, 8, 80)
 position = Vector2(58, -63)
 
 [node name="Room1_Sprite" type="Sprite2D" parent="YSort/Room1"]
+material = ExtResource("4_qycbj")
 position = Vector2(-70, 82)
 texture = ExtResource("3_w5862")
 region_enabled = true
