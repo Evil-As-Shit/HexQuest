@@ -61,7 +61,7 @@ func current_location():
 	if (not result.is_empty()):
 		if(result[0].collider.name != current_area):
 			current_area = result[0].collider.name
-			SignalController.hexy_location.emit(current_area)
+			SignalController.emit_signal("hexy_location",current_area)
 			print(current_area)
 
 func get_directional_input():
