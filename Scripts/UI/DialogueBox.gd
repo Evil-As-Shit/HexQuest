@@ -2,6 +2,13 @@ extends Control
 
 var timer_display: float = 0.0
 
+var label_size_x_portrait: float = 305.0
+var label_pos_x_portrait: float = 135.0
+var label_size_x: float = 400.0
+var label_pos_x: float = 40.0
+var label_size_y: float = 90.0
+var label_pos_y: float = 20.0
+
 func _ready():
 	visible = false
 	
@@ -24,7 +31,15 @@ func on_display_dialogue(id: String):
 	
 	var text = GameData.dict_dialogue[id]["text"]
 	var expression = GameData.dict_dialogue[id]["expression"]
-	var t = null if (expression == "null") else load("res://Assets/ui/Avatars/" + expression + ".png")
+	var t = null
+	if (expression == "null"):
+		$Label.size = Vector2(label_size_x, label_size_y)
+		$Label.position = Vector2(label_pos_x, label_pos_y)
+	else:
+		t = load("res://Assets/ui/Avatars/" + expression + ".png")
+		$Label.size = Vector2(label_size_x_portrait, label_size_y)
+		$Label.position = Vector2(label_pos_x_portrait, label_pos_y)
+		
 	
 	$Label.text = text
 	$Label.visible_characters = 0
