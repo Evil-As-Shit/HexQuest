@@ -7,9 +7,12 @@ enum STATE {IDLE, WALK, PHONE}
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
-var on_phone: bool = false
-var current_state = STATE.IDLE : set = set_current_state
 
+var on_phone: bool = false
+var para:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+var current_area : String = ""
+
+var current_state = STATE.IDLE : set = set_current_state
 func set_current_state(new_state):
 	if(new_state == current_state):
 		return
@@ -21,6 +24,11 @@ func set_current_state(new_state):
 		STATE.PHONE:
 			state_machine.travel("Phone")
 	current_state = new_state
+
+func _ready():
+	
+	para.collide_with_areas = true
+	para.collide_with_bodies = false
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo():
@@ -44,6 +52,17 @@ func _physics_process(delta: float) -> void:
 			self.current_state = STATE.PHONE
 		velocity = Vector2.ZERO
 	move_and_slide()
+	current_location()
+
+
+func current_location():
+	para.position = global_position
+	var result:Array = get_world_2d().direct_space_state.intersect_point(para,1)
+	if (not result.is_empty()):
+		if(result[0].collider.name != current_area):
+			current_area = result[0].collider.name
+			SignalController.emit_signal("hexy_location",current_area)
+			print(current_area)
 
 func get_directional_input():
 	if on_phone == true:

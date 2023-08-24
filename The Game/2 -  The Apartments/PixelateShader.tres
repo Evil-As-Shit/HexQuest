@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c4gjp8yt5xy0m"]
+
+[ext_resource type="Shader" path="res://The Game/2 -  The Apartments/pixelate.gdshader" id="1_ecwt3"]
+
+[resource]
+shader = ExtResource("1_ecwt3")
+shader_parameter/time = 0.0

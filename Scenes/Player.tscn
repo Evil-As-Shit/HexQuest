@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://ddpjv6gvn3leh"]
 
 [ext_resource type="Script" path="res://Scripts/Hexy.gd" id="1_rx7mu"]
-[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Assets/ui/Hexy.png" id="2_4oa4o"]
+[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Assets/Hexy.png" id="2_psi25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8my8"]
 size = Vector2(10, 2)
@@ -325,12 +325,12 @@ states/Walk/position = Vector2(582, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rivye"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_muk2t"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_5hj3f"), "Idle", "Phone", SubResource("AnimationNodeStateMachineTransition_jskjp"), "Phone", "Idle", SubResource("AnimationNodeStateMachineTransition_qv52v")]
 graph_offset = Vector2(-324, 23)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Hexy" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_rx7mu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4oa4o")
+texture = ExtResource("2_psi25")
 offset = Vector2(0, -12)
 hframes = 4
 vframes = 5

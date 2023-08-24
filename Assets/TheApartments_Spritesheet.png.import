@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3xggx4l1oknd"
-path="res://.godot/imported/Button_Normal.png-bc0ee71db397c85ff2d2e43a8e9de58f.ctex"
+uid="uid://b47ff7nu6p81c"
+path="res://.godot/imported/TheApartments_Spritesheet.png-81c15fabe32da510c8b5a0a37ad32bc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ui/Button_Normal.png"
-dest_files=["res://.godot/imported/Button_Normal.png-bc0ee71db397c85ff2d2e43a8e9de58f.ctex"]
+source_file="res://Assets/TheApartments_Spritesheet.png"
+dest_files=["res://.godot/imported/TheApartments_Spritesheet.png-81c15fabe32da510c8b5a0a37ad32bc7.ctex"]
 
 [params]
 

@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjf0wgc4dwc6s"]
+
+[ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="1_kn8ed"]
+[ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="2_uv7gc"]
+[ext_resource type="Texture2D" uid="uid://b47ff7nu6p81c" path="res://Assets/TheApartments_Spritesheet.png" id="3_w5862"]
+[ext_resource type="Script" path="res://The Game/2 -  The Apartments/BalconyDoor_Sprite.gd" id="4_jqwy4"]
+[ext_resource type="Material" uid="uid://c4gjp8yt5xy0m" path="res://The Game/2 -  The Apartments/PixelateShader.tres" id="4_qycbj"]
+
+[node name="The Apartments" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_kn8ed")]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Hexy" parent="YSort" instance=ExtResource("2_uv7gc")]
+position = Vector2(-91, -35)
+
+[node name="Balcony" type="StaticBody2D" parent="YSort"]
+position = Vector2(-117, -67)
+
+[node name="Balcony_Sprite" type="Sprite2D" parent="YSort/Balcony"]
+position = Vector2(17, 94)
+texture = ExtResource("3_w5862")
+region_enabled = true
+region_rect = Rect2(0, 0, 88, 192)
+
+[node name="Balcony_Collision" type="CollisionPolygon2D" parent="YSort/Balcony"]
+visible = false
+position = Vector2(57, -0.999996)
+polygon = PackedVector2Array(-4, 6.99999, -39, 9, -41, 12, -51, 12, -72, 55, -25, 59, -18, 42, -17, 42, -25, 60, -74, 56, -51, 11, -41, 11, -39, 8, 0, 6, 0, 13, -10, 33, -11, 33, -4, 19)
+
+[node name="Balcony_Area" type="Area2D" parent="YSort/Balcony"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Balcony/Balcony_Area"]
+polygon = PackedVector2Array(56, 6, 18, 8, 16, 11, 6, 11, -15, 54, 34, 58, 40, 45, 40, 31, 47, 31, 56, 12)
+
+[node name="BalconyDoor_Sprite" type="Sprite2D" parent="YSort"]
+material = ExtResource("4_qycbj")
+position = Vector2(-62, -54)
+texture = ExtResource("3_w5862")
+offset = Vector2(-11, 5)
+region_enabled = true
+region_rect = Rect2(240, 0, 24, 80)
+script = ExtResource("4_jqwy4")
+
+[node name="BalconyDoor_Sprite2" type="Sprite2D" parent="YSort"]
+material = ExtResource("4_qycbj")
+position = Vector2(-77, -25)
+texture = ExtResource("3_w5862")
+offset = Vector2(-4, -24)
+region_enabled = true
+region_rect = Rect2(240, 0, 8, 80)
+
+[node name="Room1" type="StaticBody2D" parent="YSort"]
+position = Vector2(58, -63)
+
+[node name="Room1_Sprite" type="Sprite2D" parent="YSort/Room1"]
+material = ExtResource("4_qycbj")
+position = Vector2(-70, 82)
+texture = ExtResource("3_w5862")
+region_enabled = true
+region_rect = Rect2(96, 0, 144, 216)
+
+[node name="Room1_Collision" type="CollisionPolygon2D" parent="YSort/Room1"]
+visible = false
+position = Vector2(-58, 63)
+polygon = PackedVector2Array(-84, -9, 34, 0, 58, -62, -62, -54, -71, -35, -72, -35, -62, -55, 59, -63, 35, 1, -85, -8, -78, -26, -77, -26)
+
+[node name="Room1_Area" type="Area2D" parent="YSort/Room1"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room1/Room1_Area"]
+polygon = PackedVector2Array(-141, 54, -24, 63, -1, 1, -119, 8, -128, 27, -135, 27, -135, 37)
