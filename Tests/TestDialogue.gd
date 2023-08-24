@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	print("'E': finish dialogue")
 	print("'L': load dialogue")
 	print("'ESC': quit")
 	for c in $ButtonsContainer.get_children():
@@ -11,6 +12,8 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_E:
+			SignalController.emit_signal("finish_dialogue")
 		if event.keycode == KEY_L:
 			for c in $ButtonsContainer.get_children():
 				c.queue_free()

@@ -6,6 +6,7 @@ func _ready():
 	visible = false
 	
 	SignalController.display_dialogue.connect(on_display_dialogue)
+	SignalController.finish_dialogue.connect(on_finish_dialogue)
 	
 func _process(delta):
 	if (timer_display > 0):
@@ -30,3 +31,8 @@ func on_display_dialogue(id: String):
 	$PortraitTexture.texture = t
 	
 	timer_display = GameData.time_dialogue
+
+func on_finish_dialogue():
+	GameData.flag_displaying_dialogue = false
+	$Label.visible_ratio = 1
+	timer_display = 0
