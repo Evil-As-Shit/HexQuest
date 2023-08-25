@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# First look at Phone.gd stuff (it's easier), then go here
+# My general thoughts on Hexy.gd: it should handle physics stuff (movement, interactions)
+# Maaaybe sprite stuff
+# But it shouldn't handle input. It should just respond to input data
+# (I can do a deeper dive once Phone.gd is done)
+
 #Movement/Phone Variables
 enum STATE {IDLE, WALK, PHONE}
 var on_phone : bool = false
