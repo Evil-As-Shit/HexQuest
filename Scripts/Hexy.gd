@@ -40,14 +40,14 @@ func _ready():
 	query_objects.set_collision_mask(3)
 
 func phone_switch():
-	if on_phone == false:
+	if !on_phone:
 		on_phone = true
 	else:
 		on_phone = false
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo():
-		if event.keycode == KEY_E and not on_phone:
+		if event.keycode == KEY_E and !on_phone:
 			interating()
 
 func _physics_process(delta: float) -> void:
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		self.current_state = STATE.WALK
 		velocity = velocity.move_toward(move_input * move_speed, move_acc * delta)
 	else:
-		if (on_phone == false):
+		if (!on_phone):
 			self.current_state = STATE.IDLE
 		else:
 			self.current_state = STATE.PHONE
@@ -88,7 +88,7 @@ func current_location():
 			print("Area entered: " + current_area)
 
 func get_directional_input():
-	if on_phone == true:
+	if on_phone:
 		var move_input_vector = Vector2.ZERO
 		return move_input_vector.normalized()
 	else:

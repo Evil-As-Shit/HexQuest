@@ -47,12 +47,12 @@ region_rect = Rect2(140, 0, 40, 15)
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("2_xrmwd")
 
 [node name="PhoneSprite" type="Sprite2D" parent="PhoneControl"]
 position = Vector2(15, 645)
 texture = ExtResource("1_o7cmk")
 centered = false
-script = ExtResource("2_xrmwd")
 
 [node name="Options" type="Button" parent="PhoneControl/PhoneSprite"]
 offset_left = 15.0
