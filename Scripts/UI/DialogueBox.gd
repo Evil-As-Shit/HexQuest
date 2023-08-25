@@ -12,6 +12,9 @@ var label_pos_y: float = 20.0
 func _ready():
 	visible = false
 	
+	$Button0.visible = false
+	$Button1.visible = false
+	
 	SignalController.display_dialogue.connect(on_display_dialogue)
 	SignalController.finish_dialogue.connect(on_finish_dialogue)
 	
@@ -21,12 +24,12 @@ func _process(delta):
 		if (timer_display <= 0):
 			$Label.visible_characters += 1
 			if ($Label.visible_ratio >= 1):
-				GameData.flag_displaying_dialogue = false
+				on_finish_dialogue()
 			else:
 				while (timer_display < 0): timer_display += GameData.time_dialogue
 
 func on_display_dialogue(id: String):
-	visible = true;
+	GameData.dialogue_id = id
 	GameData.flag_displaying_dialogue = true
 	
 	var text = GameData.dict_dialogue[id]["text"]
@@ -39,11 +42,13 @@ func on_display_dialogue(id: String):
 		t = load("res://Assets/ui/Avatars/" + expression + ".png")
 		$Label.size = Vector2(label_size_x_portrait, label_size_y)
 		$Label.position = Vector2(label_pos_x_portrait, label_pos_y)
-		
 	
 	$Label.text = text
 	$Label.visible_characters = 0
 	$PortraitTexture.texture = t
+	$Button0.visible = false
+	$Button1.visible = false
+	visible = true;
 	
 	timer_display = GameData.time_dialogue
 
@@ -51,3 +56,10 @@ func on_finish_dialogue():
 	GameData.flag_displaying_dialogue = false
 	$Label.visible_ratio = 1
 	timer_display = 0
+	var dialogue = GameData.dict_dialogue[GameData.dialogue_id]
+	if (dialogue.has("choices")):
+		var choices = dialogue["choices"]
+		$Button0.text = choices[0]
+		$Button1.text = choices[1]
+		$Button0.visible = true
+		$Button1.visible = true

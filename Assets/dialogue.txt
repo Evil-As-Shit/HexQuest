@@ -37,6 +37,12 @@
 			"isEnd":"true",
 		},
 		{
+			"id": "ITM014",
+			"text": "Phone is already charged!",
+			"expression": "null",
+			"isEnd":"true",
+		},
+		{
 			"id": "ITM020",
 			"text": "I shouldn't leave until I get my first soul..",
 			"expression": "witch_stare",
