@@ -1,23 +1,19 @@
 extends Control
 
 @onready var on_phone = false
-@onready var phone_sprite = get_node("PhoneSprite")
-
-func _ready():
-	pass
 
 func phone():
-	if on_phone == true:
-		get_node("PhoneSprite/Home").grab_focus()
+	if on_phone:
+		get_node("Home").grab_focus()
 	else:
 		if(get_viewport().gui_get_focus_owner()!= null):
 			get_viewport().gui_get_focus_owner().release_focus()
 
 func _process(delta):
 	if (on_phone):
-		phone_sprite.position = phone_sprite.position.lerp(Vector2(15,180), delta*10)
+		self.position = self.position.lerp(Vector2(15,180), delta*10)
 	if (!on_phone):
-		phone_sprite.position = phone_sprite.position.lerp(Vector2(15,645), delta*10)
+		self.position = self.position.lerp(Vector2(15,645), delta*10)
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo() :
