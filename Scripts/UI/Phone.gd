@@ -1,25 +1,28 @@
-extends Sprite2D
+extends Control
 
-var inUI = false
+@onready var on_phone = false
 
-func _ready():
-	SignalController.phone_switch.connect(on_phone)
-
-func on_phone():
-	if inUI == false:
-		inUI = true
+func phone():
+	if on_phone:
 		get_node("Home").grab_focus()
 	else:
-		get_viewport().gui_get_focus_owner().release_focus()
-		inUI = false
+		if(get_viewport().gui_get_focus_owner()!= null):
+			get_viewport().gui_get_focus_owner().release_focus()
 
 func _process(delta):
-	if (inUI):
-		self.position = self.position.lerp(Vector2(15,180), delta*10) 
-	if (!inUI):
-		self.position = self.position.lerp(Vector2(15,645), delta*10) 
+	if (on_phone):
+		self.position = self.position.lerp(Vector2(15,180), delta*10)
+	if (!on_phone):
+		self.position = self.position.lerp(Vector2(15,645), delta*10)
 
 func _input(event):
-	if event is InputEventKey and event.pressed and not event.is_echo() and inUI:
-		if event.keycode == KEY_E:
+	if event is InputEventKey and event.pressed and not event.is_echo() :
+		if event.keycode == KEY_Q:
+			if on_phone == false:
+				on_phone = true
+			else:
+				on_phone = false
+			phone()
+			SignalController.emit_signal("on_phone")
+		if event.keycode == KEY_E and on_phone == true:
 			print(get_viewport().gui_get_focus_owner().name)
