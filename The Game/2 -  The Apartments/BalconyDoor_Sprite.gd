@@ -7,7 +7,6 @@ func _ready():
 	shader_mat.set_shader_parameter("time", 0)
 
 func set_shader_value(value: float):
-		var shader_mat = load("res://The Game/2 -  The Apartments/PixelateShader.tres")
 		shader_mat.set_shader_parameter("time", value)
 
 func change_z_index(location: String):

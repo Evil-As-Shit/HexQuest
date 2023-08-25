@@ -8,16 +8,15 @@ var on_phone : bool = false
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
-#Room and Objects Interaction Variables
+#Room and Object Interactions Variables
 var query_area:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var query_objects:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var current_area : String = ""
 var current_object : String = ""
 
 
-
-
 var current_state = STATE.IDLE : set = set_current_state
+
 func set_current_state(new_state):
 	if(new_state == current_state):
 		return
@@ -31,21 +30,23 @@ func set_current_state(new_state):
 	current_state = new_state
 
 func _ready():
+	SignalController.on_phone.connect(phone_switch)
+	#Sets the PhysicsPointQueryParameters2D for the room and object detection
 	query_area.collide_with_areas = true
 	query_area.collide_with_bodies = false
-	query_area.set_collision_mask(1)
+	query_area.set_collision_mask(2)
 	query_objects.collide_with_areas = true
 	query_objects.collide_with_bodies = false
-	query_objects.set_collision_mask(2)
+	query_objects.set_collision_mask(3)
+
+func phone_switch():
+	if on_phone == false:
+		on_phone = true
+	else:
+		on_phone = false
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo():
-		if event.keycode == KEY_Q:
-			if on_phone == false:
-				on_phone = true
-			else:
-				on_phone = false
-			SignalController.emit_signal("on_phone")
 		if event.keycode == KEY_E and not on_phone:
 			interating()
 
@@ -69,6 +70,7 @@ func interating():
 	query_objects.position = global_position
 	var result:Array = get_world_2d().direct_space_state.intersect_point(query_objects,1)
 	if (not result.is_empty()):
+		print(result[0])
 		current_object = result[0].collider.name
 		SignalController.emit_signal("object_interacted",current_object)		#Signal emitted is a String value, might change later for more funcionality.
 		print(current_object)
