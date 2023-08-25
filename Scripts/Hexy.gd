@@ -8,7 +8,6 @@ extends CharacterBody2D
 
 #Movement/Phone Variables
 enum STATE {IDLE, WALK, PHONE}
-var on_phone : bool = false
 @export var move_speed: float = 50.0
 @export var move_acc: float = 500.0
 @onready var animation_tree = $AnimationTree
@@ -36,7 +35,7 @@ func set_current_state(new_state):
 	current_state = new_state
 
 func _ready():
-	SignalController.on_phone.connect(phone_switch)
+	SignalController.object_interacted.connect(interating)
 	#Sets the PhysicsPointQueryParameters2D for the room and object detection
 	query_area.collide_with_areas = true
 	query_area.collide_with_bodies = false
@@ -45,17 +44,6 @@ func _ready():
 	query_objects.collide_with_bodies = false
 	query_objects.set_collision_mask(3)
 
-func phone_switch():
-	if !on_phone:
-		on_phone = true
-	else:
-		on_phone = false
-
-func _input(event):
-	if event is InputEventKey and event.pressed and not event.is_echo():
-		if event.keycode == KEY_E and !on_phone:
-			interating()
-
 func _physics_process(delta: float) -> void:
 	var move_input = get_directional_input()
 	if(move_input != Vector2.ZERO):
@@ -63,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		self.current_state = STATE.WALK
 		velocity = velocity.move_toward(move_input * move_speed, move_acc * delta)
 	else:
-		if (!on_phone):
+		if (!GameData.is_using_phone):
 			self.current_state = STATE.IDLE
 		else:
 			self.current_state = STATE.PHONE
@@ -87,14 +75,13 @@ func interating():
 func current_location():
 	query_area.position = global_position
 	var result:Array = get_world_2d().direct_space_state.intersect_point(query_area,1)
-	if (not result.is_empty()):
-		if(result[0].collider.name != current_area):
+	if !result.is_empty() and result[0].collider.name != current_area:
 			current_area = result[0].collider.name
 			SignalController.emit_signal("hexy_location",current_area)		#Signal emitted is a String value.
 			print("Area entered: " + current_area)
 
 func get_directional_input():
-	if on_phone:
+	if GameData.is_using_phone:
 		var move_input_vector = Vector2.ZERO
 		return move_input_vector.normalized()
 	else:
