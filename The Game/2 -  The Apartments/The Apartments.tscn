@@ -51,7 +51,7 @@ height = 27.0
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Hexy" parent="YSort" instance=ExtResource("2_uv7gc")]
+[node name="CharacterBody2D" parent="YSort" instance=ExtResource("2_uv7gc")]
 position = Vector2(-112, -39)
 
 [node name="BalconyDoor_Sprite" type="Sprite2D" parent="YSort"]
@@ -73,6 +73,8 @@ region_rect = Rect2(240, 0, 8, 80)
 
 [node name="Balcony" type="StaticBody2D" parent="YSort"]
 position = Vector2(-117, -67)
+collision_layer = 8
+collision_mask = 0
 
 [node name="Balcony_Sprite" type="Sprite2D" parent="YSort/Balcony"]
 position = Vector2(17, 94)
@@ -81,14 +83,12 @@ region_enabled = true
 region_rect = Rect2(0, 0, 88, 192)
 
 [node name="Balcony_Collision" type="CollisionPolygon2D" parent="YSort/Balcony"]
-visible = false
 position = Vector2(57, -0.999996)
 polygon = PackedVector2Array(-4, 6.99999, -39, 9, -41, 12, -51, 12, -72, 55, -25, 59, -18, 42, -17, 42, -25, 60, -74, 56, -51, 11, -41, 11, -39, 8, 0, 6, 0, 13, -10, 33, -11, 33, -4, 19)
 
 [node name="Balcony_Area" type="Area2D" parent="YSort/Balcony"]
-visible = false
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Balcony/Balcony_Area"]
@@ -96,6 +96,8 @@ polygon = PackedVector2Array(56, 6, 18, 8, 16, 11, 6, 11, -15, 54, 34, 58, 40, 4
 
 [node name="Room1" type="StaticBody2D" parent="YSort"]
 position = Vector2(58, -63)
+collision_layer = 8
+collision_mask = 0
 
 [node name="Room1_Sprite" type="Sprite2D" parent="YSort/Room1"]
 material = ExtResource("4_qycbj")
@@ -105,21 +107,21 @@ region_enabled = true
 region_rect = Rect2(96, 0, 144, 216)
 
 [node name="Room1_Collision" type="CollisionPolygon2D" parent="YSort/Room1"]
-visible = false
 position = Vector2(-58, 63)
 polygon = PackedVector2Array(-84, -9, 34, 0, 58, -62, -62, -54, -71, -35, -72, -35, -62, -55, 59, -63, 35, 1, -85, -8, -78, -26, -77, -26)
 
 [node name="Room1_Area" type="Area2D" parent="YSort/Room1"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 monitoring = false
 
 [node name="Room1_Area" type="CollisionPolygon2D" parent="YSort/Room1/Room1_Area"]
-visible = false
 polygon = PackedVector2Array(-141, 54, -24, 63, -1, 1, -119, 8, -128, 27, -135, 27, -135, 37)
 
 [node name="Lamp" type="StaticBody2D" parent="YSort"]
 position = Vector2(-49, -50)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("6_25mms")
 
 [node name="Lamp_Sprite" type="AnimatedSprite2D" parent="YSort/Lamp"]
@@ -129,17 +131,15 @@ animation = &"off"
 offset = Vector2(0, -8)
 
 [node name="Lamp_Collision" type="CollisionShape2D" parent="YSort/Lamp"]
-visible = false
 position = Vector2(-0.5, 0.5)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_rmjvw")
 
 [node name="Lamp_Area" type="Area2D" parent="YSort/Lamp"]
-visible = false
 position = Vector2(-0.5, 0.5)
 rotation = -1.57079
 collision_layer = 4
-collision_mask = 4
+collision_mask = 0
 monitoring = false
 
 [node name="Lamp_Area" type="CollisionShape2D" parent="YSort/Lamp/Lamp_Area"]

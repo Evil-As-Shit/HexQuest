@@ -326,8 +326,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-324, 23)
 
 [node name="Hexy" type="CharacterBody2D"]
-collision_layer = 7
-collision_mask = 7
+collision_mask = 14
 motion_mode = 1
 script = ExtResource("1_rx7mu")
 

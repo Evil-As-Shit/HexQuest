@@ -1,11 +1,20 @@
 extends StaticBody2D
+class_name object
+
+var object_name : String = ""
+
 
 func _ready():
-	SignalController.object_interacted.connect(object_interacted)
+	SignalController.interaction_detected.connect(object_interacted)
+	object_name = "Lamp_Area"
+
+func _object_code():
+	if($Lamp_Sprite.animation == "off"):
+		$Lamp_Sprite.play("on")
+	else:
+		$Lamp_Sprite.play("off")
 
 func object_interacted(object: String):
-	if(object == "Lamp_Area"):
-		if($Lamp_Sprite.animation == "off"):
-			$Lamp_Sprite.play("on")
-		else:
-			$Lamp_Sprite.play("off")
+	if(object == object_name):
+		_object_code()
+
