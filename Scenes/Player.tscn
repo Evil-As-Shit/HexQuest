@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://ddpjv6gvn3leh"]
 
 [ext_resource type="Script" path="res://Scripts/Hexy.gd" id="1_rx7mu"]
-[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Assets/Hexy.png" id="2_psi25"]
+[ext_resource type="Texture2D" uid="uid://pu5onglulefw" path="res://Assets/Sprites/Hexy.png" id="2_psi25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8my8"]
 size = Vector2(10, 2)

@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://3snpnbebubhl"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Lamp.gd" id="1_wd75r"]
+[ext_resource type="Material" uid="uid://c4gjp8yt5xy0m" path="res://The Game/2 -  The Apartments/PixelateShader.tres" id="2_ehhin"]
+[ext_resource type="Texture2D" uid="uid://dmhoylhewe84a" path="res://Assets/Sprites/Objects_Spritesheet.png" id="3_dao20"]
+[ext_resource type="Texture2D" uid="uid://c56jgne1xbwdy" path="res://Assets/Objects_Spritesheet.png" id="4_mj141"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nplc"]
+atlas = ExtResource("4_mj141")
+region = Rect2(128, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e57qk"]
+atlas = ExtResource("3_dao20")
+region = Rect2(96, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qcna"]
+atlas = ExtResource("4_mj141")
+region = Rect2(128, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl3r2"]
+atlas = ExtResource("4_mj141")
+region = Rect2(160, 16, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08hgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nplc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e57qk")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qcna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl3r2")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmjvw"]
+radius = 1.5
+height = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xer2c"]
+radius = 5.0
+height = 27.0
+
+[node name="Lamp" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_wd75r")
+
+[node name="Lamp_Sprite" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_ehhin")
+position = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_08hgx")
+animation = &"off"
+frame = 1
+offset = Vector2(0, -9)
+
+[node name="Lamp_Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 0.5)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_rmjvw")
+
+[node name="Lamp" type="Area2D" parent="."]
+visible = false
+position = Vector2(0.5, 0.5)
+rotation = -1.57079
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="Lamp_Area" type="CollisionShape2D" parent="Lamp"]
+shape = SubResource("CapsuleShape2D_xer2c")

@@ -42,16 +42,15 @@ func _ready():
 	query_objects.collide_with_bodies = false
 	query_objects.collision_mask = 4  #4 is value, layer is 3.
 	SignalController.interaction_check.connect(interating)
-
 #Looks for Area2D objects in scene on collision mask 3. Used for knowing what Objects Hexy is interacting with.
+
 func interating():
 	query_objects.position = global_position
 	var result:Array = get_world_2d().direct_space_state.intersect_point(query_objects,1)
 	if (not result.is_empty()):
-		print(result)
 		current_object = result[0].collider.name
 		SignalController.emit_signal("interaction_detected", current_object)
-		print(current_object)
+		print("interacting with: ", current_object)
 	else:
 		print("no object detected...")
 
@@ -62,7 +61,7 @@ func current_location():
 	if !result.is_empty() and result[0].collider.name != current_area:
 			current_area = result[0].collider.name
 			SignalController.emit_signal("hexy_location",current_area)		#Signal emitted is a String value.
-			print("Area entered: " + current_area)
+			print("area entered: " + current_area)
 
 func _physics_process(delta: float) -> void:
 	var move_input = get_directional_input()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pu5onglulefw"
-path="res://.godot/imported/Hexy.png-a4bbea35e3e0c4657645a6139d7e40ab.ctex"
+uid="uid://b47ff7nu6p81c"
+path="res://.godot/imported/TheApartments_Spritesheet.png-77aa39bd6a6a81ba557bab96849951fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hexy.png"
-dest_files=["res://.godot/imported/Hexy.png-a4bbea35e3e0c4657645a6139d7e40ab.ctex"]
+source_file="res://Assets/Sprites/TheApartments_Spritesheet.png"
+dest_files=["res://.godot/imported/TheApartments_Spritesheet.png-77aa39bd6a6a81ba557bab96849951fc.ctex"]
 
 [params]
 

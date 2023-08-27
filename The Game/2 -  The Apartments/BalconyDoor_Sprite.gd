@@ -10,7 +10,7 @@ func set_shader_value(value: float):
 		shader_mat.set_shader_parameter("time", value)
 
 func change_z_index(location: String):
-	if location == "Balcony_Area":
+	if location == "Balcony":
 		self.z_index = 1
 	else:
 		if first_time == false:
