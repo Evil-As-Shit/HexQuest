@@ -50,9 +50,8 @@ animations = [{
 radius = 1.5
 height = 7.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xer2c"]
-radius = 5.0
-height = 27.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fomgi"]
+size = Vector2(11, 21)
 
 [node name="Lamp" type="StaticBody2D"]
 collision_layer = 4
@@ -74,7 +73,6 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_rmjvw")
 
 [node name="Lamp" type="Area2D" parent="."]
-visible = false
 position = Vector2(0.5, 0.5)
 rotation = -1.57079
 collision_layer = 4
@@ -82,4 +80,5 @@ collision_mask = 0
 monitoring = false
 
 [node name="Lamp_Area" type="CollisionShape2D" parent="Lamp"]
-shape = SubResource("CapsuleShape2D_xer2c")
+position = Vector2(-2.38419e-07, -3.39746e-06)
+shape = SubResource("RectangleShape2D_fomgi")

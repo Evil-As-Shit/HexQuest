@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjf0wgc4dwc6s"]
+[gd_scene load_steps=9 format=3 uid="uid://bjf0wgc4dwc6s"]
 
 [ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="1_kn8ed"]
 [ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="2_uv7gc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://The Game/2 -  The Apartments/BalconyDoor_Sprite.gd" id="4_jqwy4"]
 [ext_resource type="Material" uid="uid://c4gjp8yt5xy0m" path="res://The Game/2 -  The Apartments/PixelateShader.tres" id="4_qycbj"]
 [ext_resource type="PackedScene" uid="uid://3snpnbebubhl" path="res://Scenes/Objects/Lamp.tscn" id="6_eaxnm"]
+[ext_resource type="PackedScene" uid="uid://d2iabixf3el46" path="res://Scenes/Objects/Chair.tscn" id="7_bms7t"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="8_h1r5b"]
 
 [node name="The Apartments" type="Node2D"]
@@ -16,7 +17,8 @@
 y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="YSort" instance=ExtResource("2_uv7gc")]
-position = Vector2(-112, -39)
+z_index = 1
+position = Vector2(-101, -48)
 
 [node name="BalconyDoor_Sprite" type="Sprite2D" parent="YSort"]
 material = ExtResource("4_qycbj")
@@ -47,9 +49,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 88, 192)
 
 [node name="Balcony_Collision" type="CollisionPolygon2D" parent="YSort/Balcony"]
-visible = false
 position = Vector2(57, -0.999996)
-polygon = PackedVector2Array(-4, 6.99999, -39, 9, -41, 12, -51, 12, -72, 55, -25, 59, -18, 43, -17, 43, -25, 60, -74, 56, -51, 11, -41, 11, -39, 8, 0, 5.99999, -2, 14, -11, 33, -12, 33, -3, 15)
+polygon = PackedVector2Array(-4, 6.99999, -39, 9, -41, 12, -51, 12, -72, 55, -25, 59, -18, 43, -17, 43, -25, 60, -74, 56, -51, 11, -41, 11, -39, 8, 0, 5.99999, 0, 11, -11, 33, -12, 33, -1, 11, -4, 11)
 
 [node name="Balcony" type="Area2D" parent="YSort/Balcony"]
 collision_layer = 2
@@ -57,7 +58,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Balcony/Balcony"]
-polygon = PackedVector2Array(55, 6, 18, 8, 16, 11, 6, 11, -15, 54, 32, 59, 40, 41, 40, 32, 46, 32, 55, 13)
+polygon = PackedVector2Array(53, 10, 53, 6, 18, 8, 16, 11, 6, 11, -15, 54, 32, 58, 40, 42, 40, 32, 45, 32, 56, 10)
 
 [node name="Room1" type="StaticBody2D" parent="YSort"]
 position = Vector2(58, -63)
@@ -80,10 +81,13 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="Room1_Area" type="CollisionPolygon2D" parent="YSort/Room1/Room1"]
-polygon = PackedVector2Array(-142, 54, -25, 63, -1, 1, -120, 9, -129, 28, -135, 28, -135, 37)
+polygon = PackedVector2Array(-142, 54, -25, 63, -1, 1, -120, 9, -129, 28, -135, 28, -135, 38)
 
 [node name="Lamp" parent="YSort" instance=ExtResource("6_eaxnm")]
-position = Vector2(-50, -49)
+position = Vector2(-43, -53)
+
+[node name="Chair" parent="YSort" instance=ExtResource("7_bms7t")]
+position = Vector2(-55, -49)
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("8_h1r5b")

@@ -6,7 +6,7 @@ func _ready():
 	SignalController.interaction_detected.connect(object_interacted)
 	object_name = "Lamp"
 
-func object_interacted(object: String):
+func object_interacted(object: String, _player: CharacterBody2D):
 	if(object == object_name):
 		if($Lamp_Sprite.animation == "off"):
 			$Lamp_Sprite.play("on")
