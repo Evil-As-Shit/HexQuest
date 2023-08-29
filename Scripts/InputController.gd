@@ -5,8 +5,8 @@ func _input(event):
 		#Pressing E While Not On Phone (object interaction)
 		if event.keycode == KEY_E and !GameData.is_using_phone:
 			SignalController.emit_signal("interaction_check")
-		else:
 		#Pressing E While On Phone (phone interaction)
+		if event.keycode == KEY_E and GameData.is_using_phone:
 			SignalController.emit_signal("phone_interacted")
 		#Pressing Q toggles phone open and close
 		if event.keycode == KEY_Q:

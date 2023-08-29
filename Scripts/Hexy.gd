@@ -7,7 +7,7 @@ extends CharacterBody2D
 # (I can do a deeper dive once Phone.gd is done)
 
 #Movement/Phone Variables
-enum STATE {IDLE, WALK, PHONE}
+enum STATE {IDLE, WALK, PHONE, SITTING, PHONE_SIT}
 @export var move_speed: float = 50.0
 @export var move_acc: float = 500.0
 @onready var animation_tree = $AnimationTree
@@ -18,6 +18,7 @@ var query_area:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new
 var query_objects:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var current_area : String = ""
 var current_object : String = ""
+var is_sitting : bool = false
 
 var current_state = STATE.IDLE : set = set_current_state
 
@@ -29,8 +30,17 @@ func set_current_state(new_state):
 			state_machine.travel("Idle")
 		STATE.WALK:
 			state_machine.travel("Walk")
+			if is_sitting:
+				is_sitting = false
+				global_position += Vector2 (0,6)
+				z_index = 0
 		STATE.PHONE:
 			state_machine.travel("Phone")
+		STATE.SITTING:
+			state_machine.travel("Sitting")
+			is_sitting = true
+		STATE.PHONE_SIT:
+			state_machine.travel("Phone_Sit")
 	current_state = new_state
 
 func _ready():
@@ -48,10 +58,9 @@ func interating():
 	query_objects.position = global_position
 	var result:Array = get_world_2d().direct_space_state.intersect_point(query_objects,1)
 	if (not result.is_empty()):
-		print(result)
 		current_object = result[0].collider.name
-		SignalController.emit_signal("interaction_detected", current_object)
-		print(current_object)
+		SignalController.emit_signal("interaction_detected", current_object, self)
+		print("interacting with: ", current_object)
 	else:
 		print("no object detected...")
 
@@ -62,7 +71,7 @@ func current_location():
 	if !result.is_empty() and result[0].collider.name != current_area:
 			current_area = result[0].collider.name
 			SignalController.emit_signal("hexy_location",current_area)		#Signal emitted is a String value.
-			print("Area entered: " + current_area)
+			print("area entered: " + current_area)
 
 func _physics_process(delta: float) -> void:
 	var move_input = get_directional_input()
@@ -71,9 +80,13 @@ func _physics_process(delta: float) -> void:
 		self.current_state = STATE.WALK
 		velocity = velocity.move_toward(move_input * move_speed, move_acc * delta)
 	else:
-		if (!GameData.is_using_phone):
+		if !GameData.is_using_phone and !is_sitting:
 			self.current_state = STATE.IDLE
-		else:
+		elif !GameData.is_using_phone and is_sitting:
+			self.current_state = STATE.SITTING
+		elif GameData.is_using_phone and is_sitting:
+			self.current_state = STATE.PHONE_SIT
+		elif GameData.is_using_phone and !is_sitting: 
 			self.current_state = STATE.PHONE
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -93,3 +106,4 @@ func update_animation_parameters(move_input : Vector2):
 	animation_tree.set("parameters/Idle/blend_position",move_input)
 	animation_tree.set("parameters/Walk/blend_position",move_input)
 	animation_tree.set("parameters/Phone/blend_position",move_input)
+	animation_tree.set("parameters/Sitting/blend_position",move_input)

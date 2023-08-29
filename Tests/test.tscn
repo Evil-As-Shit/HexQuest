@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://yisq1poryw2d"]
+
+[ext_resource type="Texture2D" uid="uid://cmj5jv1glwh48" path="res://icon.svg" id="1_vgv1p"]
+[ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="2_gwex0"]
+[ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="3_ufjc2"]
+[ext_resource type="Script" path="res://Scripts/InputController.gd" id="4_l2bm0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeqnf"]
+size = Vector2(26, 4)
+
+[node name="Test_Level" type="Node2D"]
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort"]
+position = Vector2(-28, -22)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StaticBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_xeqnf")
+
+[node name="Icon" type="Sprite2D" parent="YSort/StaticBody2D"]
+position = Vector2(0, -13)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_vgv1p")
+
+[node name="CharacterBody2D" parent="YSort" instance=ExtResource("2_gwex0")]
+
+[node name="UI" parent="." instance=ExtResource("3_ufjc2")]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_l2bm0")
