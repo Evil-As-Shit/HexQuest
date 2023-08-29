@@ -6,9 +6,9 @@ static func loadDB(jsonFile, table):
 	var file: FileAccess = FileAccess.open(jsonFile, FileAccess.READ)
 	var content: String = file.get_as_text()
 	
-	var json: JSON = JSON.new();
+	var json: JSON = JSON.new()
 	var error = json.parse(content)
-	var toReturn = {};
+	var toReturn = {}
 	if error == OK:
 		var data = json.data
 		for s in data[table]:

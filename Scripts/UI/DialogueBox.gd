@@ -14,9 +14,12 @@ func _ready():
 	
 	$Button0.visible = false
 	$Button1.visible = false
+	$Button0.focus_entered.connect(on_choice_focus.bind(0))
+	$Button1.focus_entered.connect(on_choice_focus.bind(1))
 	
 	SignalController.display_dialogue.connect(on_display_dialogue)
 	SignalController.finish_dialogue.connect(on_finish_dialogue)
+	SignalController.close_dialogue.connect(on_close_dialogue)
 	
 func _process(delta):
 	if (timer_display > 0):
@@ -27,6 +30,13 @@ func _process(delta):
 				on_finish_dialogue()
 			else:
 				while (timer_display < 0): timer_display += GameData.time_dialogue
+
+func on_choice_focus(n: int):
+	GameData.dialogue_choice_id = n
+
+func on_close_dialogue():
+	GameData.flag_waiting_dialogue_next = false
+	visible = false
 
 func on_display_dialogue(id: String):
 	GameData.dialogue_id = id
@@ -48,7 +58,7 @@ func on_display_dialogue(id: String):
 	$PortraitTexture.texture = t
 	$Button0.visible = false
 	$Button1.visible = false
-	visible = true;
+	visible = true
 	
 	timer_display = GameData.time_dialogue
 
@@ -63,3 +73,7 @@ func on_finish_dialogue():
 		$Button1.text = choices[1]
 		$Button0.visible = true
 		$Button1.visible = true
+		$Button0.grab_focus()
+		GameData.flag_waiting_dialogue_prompt = true
+	else:
+		GameData.flag_waiting_dialogue_next = true
