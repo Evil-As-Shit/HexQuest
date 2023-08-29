@@ -32,7 +32,7 @@ func set_current_state(new_state):
 			state_machine.travel("Walk")
 			if is_sitting:
 				is_sitting = false
-				global_position = global_position + Vector2 (0,6)
+				global_position += Vector2 (0,6)
 				z_index = 0
 		STATE.PHONE:
 			state_machine.travel("Phone")

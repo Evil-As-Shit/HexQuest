@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dmhoylhewe84a" path="res://Assets/Sprites/Objects_Spritesheet.png" id="4_alx1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckrok"]
-size = Vector2(7.00008, 12)
+size = Vector2(7, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2m6i"]
-size = Vector2(11, 16)
+size = Vector2(7, 14)
 
 [node name="Chair" type="StaticBody2D"]
 collision_layer = 4
@@ -16,30 +16,29 @@ collision_mask = 0
 script = ExtResource("1_2qxpv")
 
 [node name="Sit_Position" type="Node2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -2)
 scale = Vector2(0.962511, 2.58212)
 
 [node name="Chair_Sprite" type="Sprite2D" parent="."]
 material = ExtResource("2_8pbdh")
 position = Vector2(0, 1)
 texture = ExtResource("4_alx1g")
-offset = Vector2(0, -9)
+offset = Vector2(0, -4)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Chair_Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-3.33786e-06, -3.50001)
+position = Vector2(3.13719e-06, 1.5)
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_ckrok")
 
 [node name="Chair" type="Area2D" parent="."]
-visible = false
+position = Vector2(0, 5)
 rotation = -1.57079
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
 [node name="Chair_Area" type="CollisionShape2D" parent="Chair"]
-position = Vector2(1.5, -9.64999e-06)
+position = Vector2(-3.5, -1.29879e-05)
 shape = SubResource("RectangleShape2D_e2m6i")
