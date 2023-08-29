@@ -25,6 +25,7 @@ func _input(event):
 			SignalController.emit_signal("finish_dialogue")
 		elif (GameData.flag_waiting_dialogue_prompt):
 			print("choice made! ", GameData.dialogue_choice_id)
+			SignalController.emit_signal("close_dialogue")
 		elif (GameData.flag_waiting_dialogue_next):
 			SignalController.emit_signal("close_dialogue")
 		else:

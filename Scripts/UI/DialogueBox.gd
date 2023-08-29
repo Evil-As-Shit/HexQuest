@@ -36,6 +36,7 @@ func on_choice_focus(n: int):
 
 func on_close_dialogue():
 	GameData.flag_waiting_dialogue_next = false
+	GameData.flag_waiting_dialogue_prompt = false
 	visible = false
 
 func on_display_dialogue(id: String):
