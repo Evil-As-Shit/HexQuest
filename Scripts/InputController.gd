@@ -1,5 +1,6 @@
 extends Node
 
+
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo():
 		#Pressing E While Not On Phone (object interaction)

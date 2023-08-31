@@ -34,11 +34,13 @@ func set_current_state(new_state):
 				is_sitting = false
 				global_position += Vector2 (0,6)
 				z_index = 0
+				$CollisionShape2D.disabled = false
 		STATE.PHONE:
 			state_machine.travel("Phone")
 		STATE.SITTING:
 			state_machine.travel("Sitting")
 			is_sitting = true
+			$CollisionShape2D.disabled = true
 		STATE.PHONE_SIT:
 			state_machine.travel("Phone_Sit")
 	current_state = new_state
@@ -60,7 +62,6 @@ func interating():
 	if (not result.is_empty()):
 		current_object_id = result[0].collider_id
 		SignalController.emit_signal("interaction_detected", current_object_id, self)
-		print("interacting with: ", current_object_id)
 	else:
 		print("no object detected...")
 
@@ -92,6 +93,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	current_location()
 
+#I know this is Input but seems better here than sending the info between this and InputController, iunno.
 func get_directional_input():
 	if GameData.is_using_phone:
 		var move_input_vector = Vector2.ZERO

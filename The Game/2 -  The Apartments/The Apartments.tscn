@@ -89,10 +89,10 @@ position = Vector2(-31, -50)
 position = Vector2(22, -55)
 
 [node name="Chair" parent="YSort" instance=ExtResource("7_bms7t")]
-position = Vector2(-54, -53)
+position = Vector2(-53, -54)
 
 [node name="Chair2" parent="YSort" instance=ExtResource("7_bms7t")]
-position = Vector2(43, -59)
+position = Vector2(42, -61)
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("8_h1r5b")

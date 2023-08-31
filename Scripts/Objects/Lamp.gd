@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @onready var object_id : int = get_node("Object_Id").get_instance_id()
 @onready var lamp_sprite = self.get_node("Lamp_Sprite")
+
 func _ready():
 	SignalController.interaction_detected.connect(object_interacted)
 
