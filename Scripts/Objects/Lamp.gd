@@ -1,15 +1,13 @@
 extends StaticBody2D
 
-var object_name : String = ""
-
+@onready var object_id : int = get_node("Object_Id").get_instance_id()
+@onready var lamp_sprite = self.get_node("Lamp_Sprite")
 func _ready():
 	SignalController.interaction_detected.connect(object_interacted)
-	object_name = "Lamp"
 
-func object_interacted(object: String, _player: CharacterBody2D):
-	if(object == object_name):
-		if($Lamp_Sprite.animation == "off"):
-			$Lamp_Sprite.play("on")
+func object_interacted(object: int, _player: CharacterBody2D):
+	if(object == object_id):
+		if(lamp_sprite.animation == "off"):
+			lamp_sprite.play("on")
 		else:
-			$Lamp_Sprite.play("off")
-
+			lamp_sprite.play("off")

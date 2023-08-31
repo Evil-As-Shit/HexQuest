@@ -17,7 +17,7 @@ enum STATE {IDLE, WALK, PHONE, SITTING, PHONE_SIT}
 var query_area:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var query_objects:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var current_area : String = ""
-var current_object : String = ""
+var current_object_id : int = 0
 var is_sitting : bool = false
 
 var current_state = STATE.IDLE : set = set_current_state
@@ -58,9 +58,9 @@ func interating():
 	query_objects.position = global_position
 	var result:Array = get_world_2d().direct_space_state.intersect_point(query_objects,1)
 	if (not result.is_empty()):
-		current_object = result[0].collider.name
-		SignalController.emit_signal("interaction_detected", current_object, self)
-		print("interacting with: ", current_object)
+		current_object_id = result[0].collider_id
+		SignalController.emit_signal("interaction_detected", current_object_id, self)
+		print("interacting with: ", current_object_id)
 	else:
 		print("no object detected...")
 

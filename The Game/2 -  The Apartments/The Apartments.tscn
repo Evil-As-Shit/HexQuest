@@ -17,7 +17,6 @@
 y_sort_enabled = true
 
 [node name="CharacterBody2D" parent="YSort" instance=ExtResource("2_uv7gc")]
-z_index = 1
 position = Vector2(-101, -48)
 
 [node name="BalconyDoor_Sprite" type="Sprite2D" parent="YSort"]
@@ -84,10 +83,16 @@ collision_mask = 12
 polygon = PackedVector2Array(-142, 54, -25, 63, -1, 1, -120, 9, -129, 28, -135, 28, -135, 38)
 
 [node name="Lamp" parent="YSort" instance=ExtResource("6_eaxnm")]
-position = Vector2(-32, -52)
+position = Vector2(-31, -50)
+
+[node name="Lamp2" parent="YSort" instance=ExtResource("6_eaxnm")]
+position = Vector2(22, -55)
 
 [node name="Chair" parent="YSort" instance=ExtResource("7_bms7t")]
 position = Vector2(-54, -53)
+
+[node name="Chair2" parent="YSort" instance=ExtResource("7_bms7t")]
+position = Vector2(43, -59)
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("8_h1r5b")
