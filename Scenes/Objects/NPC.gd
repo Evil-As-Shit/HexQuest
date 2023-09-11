@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var dialogue_id: String = "NPC000"
+@export var dialogue_id: String = "NPC000"
 
 @onready var object_id : int = get_node("Object_Id").get_instance_id()
 
