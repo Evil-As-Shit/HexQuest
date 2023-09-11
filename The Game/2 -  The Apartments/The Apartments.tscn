@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjf0wgc4dwc6s"]
+[gd_scene load_steps=11 format=3 uid="uid://bjf0wgc4dwc6s"]
 
 [ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="1_kn8ed"]
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_vxoag"]
 [ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="2_uv7gc"]
 [ext_resource type="Texture2D" uid="uid://b47ff7nu6p81c" path="res://Assets/Sprites/TheApartments_Spritesheet.png" id="4_8qan8"]
 [ext_resource type="Script" path="res://The Game/2 -  The Apartments/BalconyDoor_Sprite.gd" id="4_jqwy4"]
@@ -8,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://3snpnbebubhl" path="res://Scenes/Objects/Lamp.tscn" id="6_eaxnm"]
 [ext_resource type="PackedScene" uid="uid://d2iabixf3el46" path="res://Scenes/Objects/Chair.tscn" id="7_bms7t"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="8_h1r5b"]
+[ext_resource type="PackedScene" uid="uid://dwkbcxwbw0re4" path="res://Scenes/Objects/NPC.tscn" id="9_2s5f2"]
 
 [node name="The Apartments" type="Node2D"]
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("1_vxoag")
 
 [node name="UI" parent="." instance=ExtResource("1_kn8ed")]
 
@@ -35,6 +40,9 @@ texture = ExtResource("4_8qan8")
 offset = Vector2(-4, -24)
 region_enabled = true
 region_rect = Rect2(240, 0, 8, 80)
+
+[node name="NPC" parent="YSort" instance=ExtResource("9_2s5f2")]
+position = Vector2(-112, -25)
 
 [node name="Balcony" type="StaticBody2D" parent="YSort"]
 position = Vector2(-117, -67)
