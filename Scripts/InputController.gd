@@ -10,12 +10,11 @@ func _input(event):
 				KEY_Q:
 					SignalController.emit_signal("toggle_phone")
 		elif GameData.flag_displaying_dialogue:
-			SignalController.emit_signal("finish_dialogue")
+			DialogueController.finish()
 		elif GameData.flag_waiting_dialogue_prompt:
-			print("choice made! ", GameData.dialogue_choice_id)
-			SignalController.emit_signal("close_dialogue")
+			DialogueController.choose()
 		elif GameData.flag_waiting_dialogue_next:
-			SignalController.emit_signal("close_dialogue")
+			DialogueController.next()
 		else:
 			match event.keycode:
 				KEY_E:

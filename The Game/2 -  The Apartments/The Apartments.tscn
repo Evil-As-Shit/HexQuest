@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://3snpnbebubhl" path="res://Scenes/Objects/Lamp.tscn" id="6_eaxnm"]
 [ext_resource type="PackedScene" uid="uid://d2iabixf3el46" path="res://Scenes/Objects/Chair.tscn" id="7_bms7t"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="8_h1r5b"]
-[ext_resource type="PackedScene" uid="uid://dwkbcxwbw0re4" path="res://Scenes/Objects/NPC.tscn" id="9_2s5f2"]
+[ext_resource type="PackedScene" uid="uid://n2v7c8abs5om" path="res://Scenes/Objects/NPC.tscn" id="9_2s5f2"]
 
 [node name="The Apartments" type="Node2D"]
 
