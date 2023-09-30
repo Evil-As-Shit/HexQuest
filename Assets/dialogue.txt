@@ -4,10 +4,12 @@
 			"id": "ITM000",
 			"text": "Do they really expect me to read all these books?",
 			"expression": "witch_stare",
+			"tagAdd": "ITM000_COMPLETED",
 			"isEnd":"true",
 		},
 		{
 			"id": "ITM001",
+			"tagRequired": "ITM000_COMPLETED",
 			"text": "Yea I aint reading all of these...",
 			"expression": "witch_upset",
 			"isEnd":"true",

@@ -13,3 +13,5 @@ var flag_waiting_dialogue_prompt: bool = false
 var flag_waiting_dialogue_next: bool = false
 
 var is_using_phone: bool = false
+
+var dialogue_tags: PackedStringArray = []
