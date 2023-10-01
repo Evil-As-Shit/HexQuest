@@ -43,11 +43,11 @@ region_rect = Rect2(240, 0, 8, 80)
 
 [node name="NPC" parent="YSort" instance=ExtResource("9_2s5f2")]
 position = Vector2(-112, -25)
-dialogue_ids = PackedStringArray("ITM001", "ITM000")
+dialogue_ids = Array[String](["ITM001", "ITM000"])
 
 [node name="NPC2" parent="YSort" instance=ExtResource("9_2s5f2")]
 position = Vector2(-59, -16)
-dialogue_ids = PackedStringArray("NPC002")
+dialogue_ids = Array[String](["NPC002"])
 
 [node name="Balcony" type="StaticBody2D" parent="YSort"]
 position = Vector2(-117, -67)

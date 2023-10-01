@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var dialogue_ids: PackedStringArray = [ "NPC000" ]
+@export var dialogue_ids: Array[String] = [ "NPC000" ]
 
 @onready var object_id : int = get_node("Object_Id").get_instance_id()
 
