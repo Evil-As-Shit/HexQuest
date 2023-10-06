@@ -19,17 +19,20 @@
 			"text": "Would you like to charge your phone?",
 			"expression": "null",
 			"choices": ["Yes","No",],
+			"choice_0": ["ITM014", "ITM011",],
+			"choice_1": ["ITM013",],
 		},
 		{
 			"id": "ITM011",
 			"text": "Charging phone...",
 			"expression": "null",
-			"isEnd":"true",
+			"divert": "ITM012"
 		},
 		{
 			"id": "ITM012",
 			"text": "Phone is Charged!!!",
 			"expression": "null",
+			"tagAdd": "PHONE_CHARGE_FULL",
 			"isEnd":"true",
 		},
 		{
@@ -40,6 +43,7 @@
 		},
 		{
 			"id": "ITM014",
+			"tagRequired": "PHONE_CHARGE_FULL",
 			"text": "Phone is already charged!",
 			"expression": "null",
 			"isEnd":"true",

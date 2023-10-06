@@ -6,8 +6,11 @@ static func finish():
 	SignalController.emit_signal("finish_dialogue")
 
 static func choose():
-	print("choice made! ", GameData.dialogue_choice_id)
 	SignalController.emit_signal("close_dialogue")
+	var choice: String = "choice_%s" % GameData.dialogue_choice_id
+	print(GameData.dict_dialogue[GameData.dialogue_id][choice])
+	object_interacted(GameData.dict_dialogue[GameData.dialogue_id][choice])
+	
 
 static func next():
 	var dialogue = GameData.dict_dialogue[GameData.dialogue_id]
