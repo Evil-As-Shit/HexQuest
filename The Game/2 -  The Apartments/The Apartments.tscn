@@ -47,7 +47,7 @@ dialogue_ids = Array[String](["ITM001", "ITM000"])
 
 [node name="NPC2" parent="YSort" instance=ExtResource("9_2s5f2")]
 position = Vector2(-16, -14)
-dialogue_ids = Array[String](["NPC002"])
+dialogue_ids = Array[String](["NPC002", "NPC000"])
 
 [node name="NPC3" parent="YSort" instance=ExtResource("9_2s5f2")]
 position = Vector2(-110, -24)

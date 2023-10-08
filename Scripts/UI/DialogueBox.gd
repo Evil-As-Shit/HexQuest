@@ -37,10 +37,12 @@ func on_choice_focus(n: int):
 func on_close_dialogue():
 	GameData.flag_waiting_dialogue_next = false
 	GameData.flag_waiting_dialogue_prompt = false
+	GameData.is_in_dialogue = false
 	visible = false
 
 func on_display_dialogue(id: String):
 	GameData.dialogue_id = id
+	GameData.is_in_dialogue = true
 	GameData.flag_displaying_dialogue = true
 	
 	var text = GameData.dict_dialogue[id]["text"]
