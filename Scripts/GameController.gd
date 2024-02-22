@@ -6,6 +6,7 @@ func _ready():
 	GameData.dict_dialogue = DialogueParser.loadDB("res://Assets/dialogue.txt", "dialogue")
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -17,6 +17,8 @@ func _input(event):
 			match event.keycode:
 				KEY_E: SignalController.emit_signal("interaction_check")
 				KEY_Q: SignalController.emit_signal("toggle_phone")
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 #		#Pressing E While Not On Phone (object interaction)
 #		if event.keycode == KEY_E and !GameData.is_using_phone:
 #			SignalController.emit_signal("interaction_check")
