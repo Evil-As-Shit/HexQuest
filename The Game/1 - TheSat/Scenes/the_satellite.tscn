@@ -1,13 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://8gefkok4qqlq"]
+[gd_scene load_steps=16 format=3 uid="uid://8gefkok4qqlq"]
 
-[ext_resource type="Texture2D" uid="uid://bqyd38kbidqna" path="res://The Game/1 - TheSat/Assets/Sprites/background.png" id="1_5wa5g"]
+[ext_resource type="Texture2D" uid="uid://s16lwikkg7km" path="res://The Game/1 - TheSat/Assets/Sprites/background.png" id="1_5wa5g"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_d3j6w"]
 [ext_resource type="PackedScene" uid="uid://5v4h5ybacygp" path="res://Scenes/UI.tscn" id="2_8bomp"]
 [ext_resource type="PackedScene" uid="uid://ddpjv6gvn3leh" path="res://Scenes/Player.tscn" id="3_dpdh5"]
 [ext_resource type="Texture2D" uid="uid://bjo53be3q270" path="res://The Game/1 - TheSat/Assets/Sprites/rings.png" id="3_ud8dk"]
-[ext_resource type="PackedScene" uid="uid://3snpnbebubhl" path="res://Scenes/Objects/Lamp.tscn" id="8_v7xjj"]
-[ext_resource type="PackedScene" uid="uid://d2iabixf3el46" path="res://Scenes/Objects/Chair.tscn" id="9_wi0db"]
+[ext_resource type="Texture2D" uid="uid://bgukxlscctlg5" path="res://The Game/1 - TheSat/Assets/Sprites/foreground.png" id="6_031vx"]
+[ext_resource type="Script" path="res://Scenes/Objects/NPC.gd" id="6_c145x"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="10_2js8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtg70"]
+size = Vector2(32.5, 18)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5lqbj"]
+radius = 1.0
+height = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttava"]
+size = Vector2(32.5, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nrwo"]
 atlas = ExtResource("3_ud8dk")
@@ -54,21 +64,147 @@ y_sort_enabled = true
 [node name="CharacterBody2D" parent="YSort" instance=ExtResource("3_dpdh5")]
 position = Vector2(-21, 3)
 
-[node name="Lamp" parent="YSort" instance=ExtResource("8_v7xjj")]
-position = Vector2(-38, 30)
-
-[node name="Chair" parent="YSort" instance=ExtResource("9_wi0db")]
-position = Vector2(10, -24)
-
 [node name="Sat" type="StaticBody2D" parent="YSort"]
 position = Vector2(-21, -27)
+collision_layer = 8
 
 [node name="SatSprite" type="Sprite2D" parent="YSort/Sat"]
 position = Vector2(-4, 31)
 texture = ExtResource("1_5wa5g")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Sat"]
+visible = false
+polygon = PackedVector2Array(23, 7, 26.0456, 7.8883, 26, 10, 29, 10, 29, 8, 47, 14, 63, 22, 70, 29, 72, 33, 72, 40, 69, 47, 61, 55, 48, 62, 37, 66, 8, 73, -14, 73, -33, 68, -51, 59, -61, 51, -68, 40, -68, 36, -64, 29, -59, 25, -49, 18, -34, 12, -26, 9, -15, 7, -6, 6, 2.0763, 6.29912, 2, 12, 18, 12, 18.002, 6.88896, 21, 7, 21, 5, -6, 3, -41, 8, -72, 25, -74, 51, -45, 70, -2, 77, 43, 76, 69, 61, 77, 33, 65, 21, 48, 12, 24, 3)
+
+[node name="shoe_rack" type="StaticBody2D" parent="YSort"]
+position = Vector2(19, 34)
+collision_layer = 8
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT007"])
+
+[node name="shoe_sprite" type="Sprite2D" parent="YSort/shoe_rack"]
+texture = ExtResource("6_031vx")
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 15)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/shoe_rack"]
+polygon = PackedVector2Array(-11, 1, 6, -7, 11, -3, -7, 5)
+
+[node name="Object_Id" type="Area2D" parent="YSort/shoe_rack"]
+position = Vector2(0, -3)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shoe_rack/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_gtg70")
+
+[node name="dress1" type="Sprite2D" parent="YSort"]
+position = Vector2(-50, 19)
+texture = ExtResource("6_031vx")
+offset = Vector2(0, 2)
+region_enabled = true
+region_rect = Rect2(30, 5, 12, 5)
+
+[node name="dress2" type="Sprite2D" parent="YSort"]
+position = Vector2(-31, 30)
+texture = ExtResource("6_031vx")
+offset = Vector2(0, 2)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(30, 5, 12, 5)
+
+[node name="computer" type="StaticBody2D" parent="YSort"]
+position = Vector2(-57, -10)
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT001"])
+
+[node name="Object_Id" type="Area2D" parent="YSort/computer"]
+position = Vector2(-5, -4)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/computer/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_gtg70")
+
+[node name="plant" type="StaticBody2D" parent="YSort"]
+position = Vector2(12, -14)
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT002"])
+
+[node name="Object_Id" type="Area2D" parent="YSort/plant"]
+position = Vector2(-5, -4)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_gtg70")
+
+[node name="garbage" type="StaticBody2D" parent="YSort"]
+position = Vector2(-77, 16)
+collision_layer = 8
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT004"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/garbage"]
+position = Vector2(-2, -4)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_5lqbj")
+
+[node name="garbage_sprite" type="Sprite2D" parent="YSort/garbage"]
+position = Vector2(-2, -4)
+texture = ExtResource("6_031vx")
+offset = Vector2(0, -4)
+region_enabled = true
+region_rect = Rect2(80, 3, 9, 10)
+
+[node name="Object_Id" type="Area2D" parent="YSort/garbage"]
+position = Vector2(-5, -4)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/garbage/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_gtg70")
+
+[node name="clothes" type="StaticBody2D" parent="YSort"]
+position = Vector2(-33, 32)
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT009", "SAT008"])
+
+[node name="Object_Id" type="Area2D" parent="YSort/clothes"]
+position = Vector2(-5, -4)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/clothes/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_ttava")
+
+[node name="Door" type="StaticBody2D" parent="YSort"]
+script = ExtResource("6_c145x")
+dialogue_ids = Array[String](["SAT011", "SAT010"])
+
+[node name="Object_Id" type="Area2D" parent="YSort/Door"]
+position = Vector2(41, -10)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Door/Object_Id"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_ttava")
+
 [node name="rings" type="AnimatedSprite2D" parent="."]
 position = Vector2(-23, 17)
 sprite_frames = SubResource("SpriteFrames_ujedb")
 autoplay = "default"
-frame_progress = 0.275932
+frame_progress = 0.938441

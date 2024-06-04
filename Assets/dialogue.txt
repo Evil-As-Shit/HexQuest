@@ -1,6 +1,78 @@
 {
 	"dialogue": [
 		{
+			"id": "SAT001",
+			"text": "This is where I usually keep it...",
+			"expression": "witch_stare",
+			"tagAdd": "SAT_001_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT002",
+			"text": "Doesn't hurt to check...",
+			"expression": "witch_stare",
+			"divert": "SAT003"
+		},
+		{
+			"id": "SAT003",
+			"text": "Just a happy plant!",
+			"expression": "witch_happy",
+			"tagAdd": "SAT_002_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT004",
+			"text": "Sure let me just get elbows deep in garbage",
+			"expression": "witch_stare",
+			"divert": "SAT005"
+		},
+		{
+			"id": "SAT005",
+			"text": "Nope....",
+			"expression": "witch_angry",
+			"tagAdd": "SAT_003_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT007",
+			"text": "My shoesies are too little to be hiding my phone",
+			"expression": "witch_happy",
+			"tagAdd": "SAT_004_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT008",
+			"text": "Not in this pocket",
+			"expression": "witch_stare",
+			"tagAdd": "SAT008_clothes_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT009",
+			"tagRequired": "SAT008_clothes_check",
+			"text": "Not in that pocket",
+			"expression": "witch_stare",
+			"tagAdd": "SAT_005_check",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT010",
+			"text": "I should look around a little bit more...",
+			"expression": "witch_stare",
+			"isEnd":"true",
+		},
+		{
+			"id": "SAT011",
+			"tagRequired": "SAT_001_check",
+			"tagRequired":"SAT_002_check",
+			"tagRequired":"SAT_003_check",
+			"tagRequired":"SAT_004_check",
+			"tagRequired":"SAT_005_check",
+			"text": "Off I go then!",
+			"expression": "witch_happy",
+			"isEnd":"true",
+		},
+		{
 			"id": "ITM000",
 			"text": "Do they really expect me to read all these books?",
 			"expression": "witch_stare",

@@ -11,7 +11,6 @@ static func choose():
 	print(GameData.dict_dialogue[GameData.dialogue_id][choice])
 	object_interacted(GameData.dict_dialogue[GameData.dialogue_id][choice])
 	
-
 static func next():
 	var dialogue = GameData.dict_dialogue[GameData.dialogue_id]
 	if (dialogue.has("isEnd")):

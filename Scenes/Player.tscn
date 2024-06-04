@@ -385,23 +385,21 @@ texture = ExtResource("2_psi25")
 offset = Vector2(0, -12)
 hframes = 4
 vframes = 6
-frame = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_d8my8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle_down"
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_nlsmi")
 }
+autoplay = "idle_down"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_4eofk")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/Idle/blend_position = Vector2(-0.177419, 0.471204)
 parameters/Phone/blend_position = Vector2(-0.00339723, 1.1)
 parameters/Walk/blend_position = Vector2(-0.0406452, 0.155497)
