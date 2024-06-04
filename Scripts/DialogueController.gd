@@ -8,7 +8,6 @@ static func finish():
 static func choose():
 	SignalController.emit_signal("close_dialogue")
 	var choice: String = "choice_%s" % GameData.dialogue_choice_id
-	print(GameData.dict_dialogue[GameData.dialogue_id][choice])
 	object_interacted(GameData.dict_dialogue[GameData.dialogue_id][choice])
 	
 static func next():

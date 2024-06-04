@@ -1,5 +1,13 @@
 extends Node
 
+func _process(delta):
+	GameData.move_input_vector = Vector2.ZERO
+	if GameData.is_using_phone: return
+	if GameData.is_in_dialogue: return
+	GameData.move_input_vector = Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		).normalized()
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.is_echo():

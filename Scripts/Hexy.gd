@@ -75,11 +75,10 @@ func current_location():
 			print("area entered: " + current_area)
 
 func _physics_process(delta: float) -> void:
-	var move_input = get_directional_input()
-	if(move_input != Vector2.ZERO):
-		update_animation_parameters(move_input)
+	if(GameData.move_input_vector != Vector2.ZERO):
+		update_animation_parameters(GameData.move_input_vector)
 		self.current_state = STATE.WALK
-		velocity = velocity.move_toward(move_input * move_speed, move_acc * delta)
+		velocity = velocity.move_toward(GameData.move_input_vector * move_speed, move_acc * delta)
 	else:
 		if !GameData.is_using_phone and !is_sitting:
 			self.current_state = STATE.IDLE
@@ -92,17 +91,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 	move_and_slide()
 	current_location()
-
-#I know this is Input but seems better here than sending the info between this and InputController, iunno.
-func get_directional_input():
-	if GameData.is_using_phone:
-		var move_input_vector = Vector2.ZERO
-		return move_input_vector.normalized()
-	else:
-		var move_input_vector = Vector2(
-			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-			Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
-		return move_input_vector.normalized()
 
 func update_animation_parameters(move_input : Vector2):
 	animation_tree.set("parameters/Idle/blend_position",move_input)

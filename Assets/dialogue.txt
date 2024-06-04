@@ -128,6 +128,7 @@
 		},
 		{
 			"id": "ITM021",
+			"tagRequired": "FIRST_SOUL_COMPLETED",
 			"text": "I'm ready to explore the world with my new Soul now!",
 			"expression": "witch_happy",
 			"isEnd":"true",
@@ -152,6 +153,7 @@
 		},
 		{
 			"id": "NPC002",
+			"tagRequired": "PHONE_CHARGE_ZERO",
 			"text": "Hey... My phone is dead... Is there somewhere I can charge it?",
 			"expression": "witch_upset",
 			"divert": "NPC003"
@@ -194,6 +196,7 @@
 		},
 		{
 			"id": "NPC010",
+			"tagRequired": "FIRST_SOUL_COMPLETED",
 			"text": "Wow! Good job! You collected your first soul!!",
 			"expression": "npc1_happy",
 			"divert": "NPC011"
